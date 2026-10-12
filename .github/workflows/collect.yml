@@ -1,0 +1,32 @@
+name: Collect public market data
+on:
+  workflow_dispatch:
+# No schedule until the user supplies a time and a real manual run is verified.
+permissions:
+  contents: read
+concurrency:
+  group: cs2-market-data-single-writer
+  cancel-in-progress: false
+jobs:
+  collect:
+    if: github.repository == 'zfy06011/cs2-market-data' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Controlled checks without production credentials
+        run: |
+          npm run check
+          npm test
+      - name: Collect and append to data branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          C5_APP_KEY: ${{ secrets.C5_APP_KEY }}
+        run: npm run collect
