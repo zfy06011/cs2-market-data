@@ -1,8 +1,5 @@
-node_modules/
 .local/
 .env
 .env.*
 *.key
 *.pem
-coverage/
-*.apk

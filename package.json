@@ -1,12 +1,12 @@
 {
   "name": "cs2-market-data",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.1.0",
   "type": "module",
   "engines": { "node": ">=24" },
   "scripts": {
+    "check": "node --check scripts/probe-smis-cloud.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check src/core.mjs && node --check src/market.mjs && node --check src/archive.mjs && node --check src/collect.mjs",
-    "collect": "node src/collect.mjs"
+    "probe:cloud": "node scripts/probe-smis-cloud.mjs"
   }
 }

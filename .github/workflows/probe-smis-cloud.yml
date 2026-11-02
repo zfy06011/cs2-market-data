@@ -1,19 +1,27 @@
-name: Collect public market data
+name: SMIS cloud connectivity probe
+
 on:
   workflow_dispatch:
-# No schedule until the user supplies a time and a real manual run is verified.
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/probe-smis-cloud.yml'
+      - 'scripts/probe-smis-cloud.mjs'
+      - 'tests/probe-smis-cloud.test.mjs'
+      - 'package.json'
+
 permissions:
   contents: read
+
 concurrency:
-  group: cs2-market-data-single-writer
+  group: smis-cloud-probe
   cancel-in-progress: false
+
 jobs:
-  collect:
+  probe:
     if: github.repository == 'zfy06011/cs2-market-data' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    permissions:
-      contents: write
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -21,12 +29,9 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '24'
-      - name: Controlled checks without production credentials
+      - name: Controlled checks
         run: |
           npm run check
           npm test
-      - name: Collect and append to data branch
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-          C5_APP_KEY: ${{ secrets.C5_APP_KEY }}
-        run: npm run collect
+      - name: Read one real SMIS history from GitHub-hosted Linux
+        run: npm run probe:cloud
