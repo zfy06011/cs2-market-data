@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "seedOrigin": "existing_local_public_market_identity_cache",
+  "selection": "category_round_robin_then_numeric_id_ascending",
+  "scope": "pilot_not_full_catalog_or_historical_universe",
+  "items": [
+    {
+      "id": "702",
+      "hash": "CS20 Case",
+      "category": "case"
+    },
+    {
+      "id": "8",
+      "hash": "2020 RMR Challengers",
+      "category": "capsule"
+    },
+    {
+      "id": "11139",
+      "hash": "Sticker | 00 Nation | Rio 2022",
+      "category": "sticker"
+    },
+    {
+      "id": "340",
+      "hash": "AUG | Snake Pit (Well-Worn)",
+      "category": "weapon"
+    },
+    {
+      "id": "17882",
+      "hash": "★ Bayonet | Bright Water (Battle-Scarred)",
+      "category": "knife"
+    },
+    {
+      "id": "18930",
+      "hash": "★ Moto Gloves | Cool Mint (Battle-Scarred)",
+      "category": "glove"
+    },
+    {
+      "id": "8229",
+      "hash": "Special Agent Ava | FBI",
+      "category": "agent"
+    },
+    {
+      "id": "62590",
+      "hash": "Charm | Hot Wurst",
+      "category": "charm"
+    },
+    {
+      "id": "5171",
+      "hash": "Sealed Graffiti | 1G (Battle Green)",
+      "category": "graffiti"
+    },
+    {
+      "id": "4369",
+      "hash": "Patch | CMB",
+      "category": "patch"
+    },
+    {
+      "id": "59367",
+      "hash": "Music Kit | Knock2, Make U SWEAT!",
+      "category": "music"
+    },
+    {
+      "id": "68125",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | 910 Triple Kill vs Vitality",
+      "category": "highlight"
+    },
+    {
+      "id": "71485",
+      "hash": "Sticker Slab | Mahjong Fa",
+      "category": "slab"
+    },
+    {
+      "id": "863",
+      "hash": "Chroma 2 Case",
+      "category": "case"
+    },
+    {
+      "id": "10",
+      "hash": "2020 RMR Legends",
+      "category": "capsule"
+    },
+    {
+      "id": "11147",
+      "hash": "Sticker | 360 No Scope",
+      "category": "sticker"
+    },
+    {
+      "id": "350",
+      "hash": "AUG | Storm (Well-Worn)",
+      "category": "weapon"
+    },
+    {
+      "id": "18054",
+      "hash": "★ Bowie Knife | Stained (Factory New)",
+      "category": "knife"
+    },
+    {
+      "id": "19325",
+      "hash": "★ Specialist Gloves | Foundation (Field-Tested)",
+      "category": "glove"
+    },
+    {
+      "id": "5190",
+      "hash": "Sealed Graffiti | 200 IQ (Battle Green)",
+      "category": "graffiti"
+    },
+    {
+      "id": "4410",
+      "hash": "Patch | Longevity",
+      "category": "patch"
+    },
+    {
+      "id": "68132",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | torzsi Triple Kill",
+      "category": "highlight"
+    },
+    {
+      "id": "73172",
+      "hash": "Sticker Slab | BIG (Holo) | 2020 RMR",
+      "category": "slab"
+    },
+    {
+      "id": "865",
+      "hash": "Chroma 3 Case",
+      "category": "case"
+    },
+    {
+      "id": "540",
+      "hash": "Antwerp 2022 Contenders Autograph Capsule",
+      "category": "capsule"
+    },
+    {
+      "id": "11157",
+      "hash": "Sticker | 9z Team (Glitter) | Antwerp 2022",
+      "category": "sticker"
+    },
+    {
+      "id": "384",
+      "hash": "AUG | Triqua (Minimal Wear)",
+      "category": "weapon"
+    },
+    {
+      "id": "18106",
+      "hash": "★ Butterfly Knife | Bright Water (Battle-Scarred)",
+      "category": "knife"
+    },
+    {
+      "id": "59514",
+      "hash": "★ Sport Gloves | Vice (Minimal Wear)",
+      "category": "glove"
+    },
+    {
+      "id": "5192",
+      "hash": "Sealed Graffiti | 200 IQ (Blood Red)",
+      "category": "graffiti"
+    },
+    {
+      "id": "4455",
+      "hash": "Patch | Tyloo (Gold) | Stockholm 2021",
+      "category": "patch"
+    },
+    {
+      "id": "68133",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | Surprise Grenade",
+      "category": "highlight"
+    },
+    {
+      "id": "74310",
+      "hash": "Sticker Slab | Team Spirit (Gold) | Austin 2025",
+      "category": "slab"
+    },
+    {
+      "id": "867",
+      "hash": "Chroma Case",
+      "category": "case"
+    },
+    {
+      "id": "545",
+      "hash": "Antwerp 2022 Legends Sticker Capsule",
+      "category": "capsule"
+    },
+    {
+      "id": "11240",
+      "hash": "Sticker | Aerial (Gold) | Berlin 2019",
+      "category": "sticker"
+    },
+    {
+      "id": "385",
+      "hash": "AUG | Triqua (Well-Worn)",
+      "category": "weapon"
+    },
+    {
+      "id": "18127",
+      "hash": "★ Butterfly Knife | Freehand (Battle-Scarred)",
+      "category": "knife"
+    },
+    {
+      "id": "79117",
+      "hash": "★ Driver Gloves | Plum Quill (Minimal Wear)",
+      "category": "glove"
+    },
+    {
+      "id": "5199",
+      "hash": "Sealed Graffiti | 200 IQ (Monarch Blue)",
+      "category": "graffiti"
+    }
+  ]
+}

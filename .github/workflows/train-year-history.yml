@@ -1,0 +1,67 @@
+name: Train seven-day quotes from near-year history
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: year-history-training
+  cancel-in-progress: false
+
+jobs:
+  train:
+    if: github.repository == 'zfy06011/cs2-market-data' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      RUN_DIR: .local/year-training
+      OMP_NUM_THREADS: '4'
+      OPENBLAS_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - name: Check collectors and install pinned training dependencies
+        run: |
+          npm run check
+          node --check scripts/collect-training-history.mjs
+          npm test
+          python -m pip install --disable-pip-version-check -r requirements-training.txt
+      - name: Check time boundaries and data contracts
+        run: python -m unittest discover -s training -p 'test_*.py' -v
+      - name: Read bounded near-year histories
+        run: node scripts/collect-training-history.mjs --live config/training-cohort.json "$RUN_DIR"
+      - name: Train and evaluate seven-calendar-day models
+        run: python training/train.py --input "$RUN_DIR" --output "$RUN_DIR/results"
+      - name: Write summary
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          report = Path(os.environ["RUN_DIR"]) / "results/report.md"
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+              f.write(report.read_text(encoding="utf-8"))
+          PY
+      - name: Retain models and experiment reports for seven days
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: year-history-training
+          retention-days: 7
+          if-no-files-found: error
+          include-hidden-files: true
+          path: |
+            .local/year-training/collection.json
+            .local/year-training/results/report.md
+            .local/year-training/results/report.json
+            .local/year-training/results/predictions.json
+            .local/year-training/results/experimental-top20.json
+            .local/year-training/results/holdout-predictions.jsonl
+            .local/year-training/results/*.joblib
