@@ -1,0 +1,2032 @@
+{
+  "schemaVersion": 2,
+  "experiment": "dual-buy-year-v2",
+  "asOfUtc": "2026-11-02T00:00:00+00:00",
+  "requestedWindowDays": 365,
+  "sourceDays": [
+    360,
+    90
+  ],
+  "targets": {
+    "train": 120,
+    "validation": 40,
+    "test": 40
+  },
+  "minimumValidDays": 180,
+  "maxRequests": 850,
+  "intervalMs": 3000,
+  "budgetCents": 100000,
+  "badFoldThreshold": 7.5,
+  "maxExitDelayHours": 24,
+  "holdingHours": 168,
+  "seed": 42,
+  "steamFee": {
+    "minimumCents": 7,
+    "steamBasisPoints": 500,
+    "publisherBasisPoints": 1000
+  },
+  "buyerFeeBasisPoints": {
+    "c5": 0,
+    "uuyp": 0
+  },
+  "buyerFeesVerified": false,
+  "buyerFeeScenarios": [
+    {
+      "name": "zero_extra_fee_assumption",
+      "c5": 0,
+      "uuyp": 0
+    },
+    {
+      "name": "c5_plus_1pct",
+      "c5": 100,
+      "uuyp": 0
+    },
+    {
+      "name": "uuyp_plus_1pct",
+      "c5": 0,
+      "uuyp": 100
+    },
+    {
+      "name": "both_plus_1pct",
+      "c5": 100,
+      "uuyp": 100
+    }
+  ],
+  "testExcludedPriorNames": [
+    "2020 RMR Challengers",
+    "2020 RMR Legends",
+    "AUG | Snake Pit (Well-Worn)",
+    "AUG | Storm (Well-Worn)",
+    "AUG | Triqua (Minimal Wear)",
+    "AUG | Triqua (Well-Worn)",
+    "AWP | Acheron (Battle-Scarred)",
+    "Antwerp 2022 Contenders Autograph Capsule",
+    "Antwerp 2022 Legends Sticker Capsule",
+    "CS20 Case",
+    "CZ75-Auto | Distressed (Battle-Scarred)",
+    "CZ75-Auto | Imprint (Battle-Scarred)",
+    "CZ75-Auto | Imprint (Well-Worn)",
+    "CZ75-Auto | Polymer (Battle-Scarred)",
+    "Charm | Hot Wurst",
+    "Chroma 2 Case",
+    "Chroma 3 Case",
+    "Chroma Case",
+    "Clutch Case",
+    "Danger Zone Case",
+    "Dreams & Nightmares Case",
+    "Falchion Case",
+    "Fracture Case",
+    "Music Kit | Knock2, Make U SWEAT!",
+    "Paris 2023 Challengers Autograph Capsule",
+    "Paris 2023 Challengers Sticker Capsule",
+    "Paris 2023 Contenders Autograph Capsule",
+    "Paris 2023 Contenders Sticker Capsule",
+    "Paris 2023 Legends Autograph Capsule",
+    "Patch | CMB",
+    "Patch | Longevity",
+    "Patch | Tyloo (Gold) | Stockholm 2021",
+    "Sealed Graffiti | 1G (Battle Green)",
+    "Sealed Graffiti | 200 IQ (Battle Green)",
+    "Sealed Graffiti | 200 IQ (Blood Red)",
+    "Sealed Graffiti | 200 IQ (Monarch Blue)",
+    "Sealed Graffiti | 200 IQ (Shark White)",
+    "Sealed Graffiti | 200 IQ (Tracer Yellow)",
+    "Sealed Graffiti | 8-Ball (Battle Green)",
+    "Sealed Graffiti | 8-Ball (Frog Green)",
+    "Sealed Graffiti | 8-Ball (Shark White)",
+    "Souvenir Charm | Austin 2025 Highlight | 910 Clutch Denied",
+    "Souvenir Charm | Austin 2025 Highlight | 910 Triple Kill vs Vitality",
+    "Souvenir Charm | Austin 2025 Highlight | Deadly Deagle",
+    "Souvenir Charm | Austin 2025 Highlight | One Tap",
+    "Souvenir Charm | Austin 2025 Highlight | Running Galil",
+    "Souvenir Charm | Austin 2025 Highlight | Surprise Grenade",
+    "Souvenir Charm | Austin 2025 Highlight | Triple Headshot",
+    "Souvenir Charm | Austin 2025 Highlight | torzsi Triple Kill",
+    "Special Agent Ava | FBI",
+    "Sticker Slab | BIG (Holo) | 2020 RMR",
+    "Sticker Slab | Mahjong Fa",
+    "Sticker Slab | Swisher | Budapest 2025",
+    "Sticker Slab | Team Spirit (Gold) | Austin 2025",
+    "Sticker Slab | donk | Cologne 2026",
+    "Sticker Slab | jL (Glitter, Champion) | Copenhagen 2024",
+    "Sticker Slab | m0NESY | Copenhagen 2024",
+    "Sticker Slab | woxic (Holo) | Austin 2025",
+    "Sticker | 00 Nation | Rio 2022",
+    "Sticker | 360 No Scope",
+    "Sticker | 9z Team (Glitter) | Antwerp 2022",
+    "Sticker | Aerial (Gold) | Berlin 2019",
+    "Sticker | Aerial | Berlin 2019",
+    "Sticker | Aleksib (Holo) | Antwerp 2022",
+    "Sticker | Assassin (Holo)",
+    "Sticker | Ax1Le (Glitter) | Antwerp 2022",
+    "Sticker | B1ad3 (Foil) | MLG Columbus 2016",
+    "★ Bayonet | Bright Water (Battle-Scarred)",
+    "★ Bowie Knife | Stained (Factory New)",
+    "★ Butterfly Knife | Bright Water (Battle-Scarred)",
+    "★ Butterfly Knife | Freehand (Battle-Scarred)",
+    "★ Classic Knife | Safari Mesh (Well-Worn)",
+    "★ Driver Gloves | Plum Quill (Minimal Wear)",
+    "★ M9 Bayonet | Black Laminate (Battle-Scarred)",
+    "★ M9 Bayonet | Boreal Forest (Field-Tested)",
+    "★ Moto Gloves | Cool Mint (Battle-Scarred)",
+    "★ Specialist Gloves | Foundation (Field-Tested)",
+    "★ Sport Gloves | Vice (Minimal Wear)",
+    "★ StatTrak™ Bayonet | Bright Water (Field-Tested)",
+    "★ StatTrak™ Flip Knife | Autotronic (Battle-Scarred)"
+  ],
+  "selection": "category_price_snapshot_band_round_robin_seeded_hash_no_return_filter",
+  "decisionTime": "common_utc_midnight_after_feature_day",
+  "sourceScope": "supplier_aggregate_quotes_not_executed_trades",
+  "items": [
+    {
+      "id": "8229",
+      "hash": "Special Agent Ava | FBI",
+      "category": "agent",
+      "sampling_band": "unknown",
+      "role": "train"
+    },
+    {
+      "id": "899",
+      "hash": "Danger Zone Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "17174",
+      "hash": "Sugarface Capsule",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "545",
+      "hash": "Antwerp 2022 Legends Sticker Capsule",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "1424",
+      "hash": "Falchion Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "4349",
+      "hash": "Paris 2023 Legends Sticker Capsule",
+      "category": "capsule",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "4343",
+      "hash": "Paris 2023 Challengers Sticker Capsule",
+      "category": "capsule",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "6105",
+      "hash": "Sealed Graffiti | OMG (Shark White)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "4475",
+      "hash": "Prisma 2 Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "1078",
+      "hash": "Dreams & Nightmares Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "6001",
+      "hash": "Sealed Graffiti | Loser (Tracer Yellow)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "1869",
+      "hash": "Gamma Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "6983",
+      "hash": "Shadow Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "78407",
+      "hash": "Souvenir Charm | Budapest 2025 Highlight | makazze flash cleanup",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "61753",
+      "hash": "Kilowatt Case",
+      "category": "case",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "62590",
+      "hash": "Charm | Hot Wurst",
+      "category": "charm",
+      "sampling_band": "unknown",
+      "role": "train"
+    },
+    {
+      "id": "20690",
+      "hash": "★ Stiletto Knife | Stained (Field-Tested)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "validation"
+    },
+    {
+      "id": "6659",
+      "hash": "Sealed Graffiti | Silver Bullet (Bazooka Pink)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "19325",
+      "hash": "★ Specialist Gloves | Foundation (Field-Tested)",
+      "category": "glove",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "67349",
+      "hash": "Sticker | jeorge (Holo) | Austin 2025",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "5421",
+      "hash": "Sealed Graffiti | Choke (Shark White)",
+      "category": "graffiti",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "5229",
+      "hash": "Sealed Graffiti | Applause (Battle Green)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "81399",
+      "hash": "Sticker | Please Be Patient",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "5920",
+      "hash": "Sealed Graffiti | Lambda (Shark White)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "5294",
+      "hash": "Sealed Graffiti | Backstab (Battle Green)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "64517",
+      "hash": "Sticker | Grim (Glitter) | Shanghai 2024",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "78095",
+      "hash": "Souvenir Charm | Budapest 2025 Highlight | frozen vs Natus Vincere on Nuke",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "68152",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | Triple Headshot",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "2140",
+      "hash": "M249 | Deep Relief (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "68669",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | 3-2-1-GO!",
+      "category": "highlight",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "68132",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | torzsi Triple Kill",
+      "category": "highlight",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "9821",
+      "hash": "StatTrak™ MP9 | Dart (Factory New)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "69882",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | The Clutch Demon",
+      "category": "highlight",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "18207",
+      "hash": "★ Classic Knife | Safari Mesh (Well-Worn)",
+      "category": "knife",
+      "sampling_band": "100-1000",
+      "role": "train"
+    },
+    {
+      "id": "17514",
+      "hash": "UMP-45 | Urban DDPAT (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "20612",
+      "hash": "★ StatTrak™ Ursus Knife | Safari Mesh (Minimal Wear)",
+      "category": "knife",
+      "sampling_band": "100-1000",
+      "role": "test"
+    },
+    {
+      "id": "17882",
+      "hash": "★ Bayonet | Bright Water (Battle-Scarred)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "8230",
+      "hash": "Spectrum 2 Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "19809",
+      "hash": "★ StatTrak™ Flip Knife | Scorched (Field-Tested)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "test"
+    },
+    {
+      "id": "59367",
+      "hash": "Music Kit | Knock2, Make U SWEAT!",
+      "category": "music",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "6697",
+      "hash": "Sealed Graffiti | Smirk (Battle Green)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "80421",
+      "hash": "Sticker Slab | HUASOPEEK (Foil) | Cologne 2026",
+      "category": "slab",
+      "sampling_band": "1000+",
+      "role": "test"
+    },
+    {
+      "id": "4410",
+      "hash": "Patch | Longevity",
+      "category": "patch",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "5856",
+      "hash": "Sealed Graffiti | Karambit (Shark White)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "12249",
+      "hash": "Sticker | Forty Two",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "4455",
+      "hash": "Patch | Tyloo (Gold) | Stockholm 2021",
+      "category": "patch",
+      "sampling_band": "100-1000",
+      "role": "train"
+    },
+    {
+      "id": "68304",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | 910 Clutch Denied",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "60078",
+      "hash": "Sticker | acoR (Gold) | Copenhagen 2024",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "73172",
+      "hash": "Sticker Slab | BIG (Holo) | 2020 RMR",
+      "category": "slab",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "64621",
+      "hash": "Sticker | FlameZ (Holo) | Shanghai 2024",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "12875",
+      "hash": "Sticker | KSCERATO (Gold) | Antwerp 2022",
+      "category": "sticker",
+      "sampling_band": "100-1000",
+      "role": "test"
+    },
+    {
+      "id": "74310",
+      "hash": "Sticker Slab | Team Spirit (Gold) | Austin 2025",
+      "category": "slab",
+      "sampling_band": "100-1000",
+      "role": "train"
+    },
+    {
+      "id": "14219",
+      "hash": "Sticker | TeSeS (Holo) | Rio 2022",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "11765",
+      "hash": "Sticker | DickStacy (Gold) | Berlin 2019",
+      "category": "sticker",
+      "sampling_band": "1000+",
+      "role": "test"
+    },
+    {
+      "id": "16978",
+      "hash": "Sticker | tiziaN (Holo) | Antwerp 2022",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "14577",
+      "hash": "Sticker | WOOD7 (Glitter) | Paris 2023",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "70441",
+      "hash": "Sticker | PR | Budapest 2025",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "70922",
+      "hash": "Sticker | torzsi (Gold) | Budapest 2025",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "9130",
+      "hash": "StatTrak™ Galil AR | Vandal (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "1204",
+      "hash": "Dual Berettas | Shred (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "11360",
+      "hash": "Sticker | B1ad3 (Foil) | MLG Columbus 2016",
+      "category": "sticker",
+      "sampling_band": "100-1000",
+      "role": "train"
+    },
+    {
+      "id": "7524",
+      "hash": "Souvenir MAG-7 | Rust Coat (Factory New)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "7727",
+      "hash": "Souvenir P250 | Black & Tan (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "11853",
+      "hash": "Sticker | ENCE | Antwerp 2022",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "2575",
+      "hash": "MAC-10 | Calf Skin (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "10778",
+      "hash": "StatTrak™ Sawed-Off | Wasteland Princess (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "100-1000",
+      "role": "test"
+    },
+    {
+      "id": "17256",
+      "hash": "Tec-9 | Ice Cap (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "3617",
+      "hash": "Operation Broken Fang Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "8362",
+      "hash": "StatTrak™ AK-47 | Vulcan (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "1000+",
+      "role": "test"
+    },
+    {
+      "id": "59333",
+      "hash": "StatTrak™ Zeus x27 | Olympus (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "5894",
+      "hash": "Sealed Graffiti | Kiss (Frog Green)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "59822",
+      "hash": "MAC-10 | Light Box (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "63156",
+      "hash": "StatTrak™ M4A4 | Turbine (Factory New)",
+      "category": "weapon",
+      "sampling_band": "100-1000",
+      "role": "train"
+    },
+    {
+      "id": "6951",
+      "hash": "Sealed Graffiti | X-Axes (Shark White)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "70524",
+      "hash": "Budapest 2025 Challengers Sticker Capsule",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "5049",
+      "hash": "Sawed-Off | Copper (Factory New)",
+      "category": "weapon",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "78476",
+      "hash": "Souvenir Charm | Budapest 2025 Highlight | apEX A-site lockdown",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "70536",
+      "hash": "Budapest 2025 Contenders Sticker Capsule",
+      "category": "capsule",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "80673",
+      "hash": "Dual Berettas | Mystic Conjunction (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "70683",
+      "hash": "Sticker | nicx (Holo) | Budapest 2025",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "78146",
+      "hash": "Sealed Dead Hand Terminal",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "10",
+      "hash": "2020 RMR Legends",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "11956",
+      "hash": "Sticker | Ethereal Gaze (Foil)",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "3616",
+      "hash": "Operation Breakout Weapon Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "4342",
+      "hash": "Paris 2023 Challengers Autograph Capsule",
+      "category": "capsule",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "70353",
+      "hash": "Sticker | XotiC | Budapest 2025",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "69127",
+      "hash": "Sealed Genesis Terminal",
+      "category": "case",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "1579",
+      "hash": "Fracture Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "17235",
+      "hash": "Tec-9 | Fubar (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "5982",
+      "hash": "Sealed Graffiti | Little EZ (Violent Violet)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "4579",
+      "hash": "Revolver Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "79223",
+      "hash": "StatTrak™ Galil AR | Galigator (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "5900",
+      "hash": "Sealed Graffiti | Kiss (Shark White)",
+      "category": "graffiti",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "18930",
+      "hash": "★ Moto Gloves | Cool Mint (Battle-Scarred)",
+      "category": "glove",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "65516",
+      "hash": "Dual Berettas | Rose Nacre (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "6163",
+      "hash": "Sealed Graffiti | Piggles (Tracer Yellow)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "5283",
+      "hash": "Sealed Graffiti | BOOM (Jungle Green)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "6985",
+      "hash": "Shattered Web Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "68487",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | Peekaboo",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "5869",
+      "hash": "Sealed Graffiti | King Me (Bazooka Pink)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "5386",
+      "hash": "Sealed Graffiti | Chef Kiss (War Pig Pink)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "78509",
+      "hash": "Souvenir Charm | Budapest 2025 Highlight | 910 solid rotation",
+      "category": "highlight",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "68501",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | Blocking B",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "5987",
+      "hash": "Sealed Graffiti | Loser (Bazooka Pink)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "20706",
+      "hash": "★ Survival Knife | Blue Steel (Factory New)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "test"
+    },
+    {
+      "id": "68457",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | One Tap",
+      "category": "highlight",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "69885",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | 2 Pistol Headshots",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "13666",
+      "hash": "Sticker | Poorly Drawn IDF",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "18106",
+      "hash": "★ Butterfly Knife | Bright Water (Battle-Scarred)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "12442",
+      "hash": "Sticker | Green Swallow",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "12434",
+      "hash": "Sticker | Great Wave",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "4369",
+      "hash": "Patch | CMB",
+      "category": "patch",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "14986",
+      "hash": "Sticker | bodyy | Cologne 2016",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "80506",
+      "hash": "Sticker | JBa (Gold) | Cologne 2026",
+      "category": "sticker",
+      "sampling_band": "100-1000",
+      "role": "test"
+    },
+    {
+      "id": "74376",
+      "hash": "Sticker Slab | Swisher | Budapest 2025",
+      "category": "slab",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "67041",
+      "hash": "Sticker | nicoodoz (Foil) | Austin 2025",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "79426",
+      "hash": "Sticker | m0NESY (Gold) | Cologne 2026",
+      "category": "sticker",
+      "sampling_band": "1000+",
+      "role": "test"
+    },
+    {
+      "id": "79867",
+      "hash": "Sticker | EliGE | Cologne 2026",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "2591",
+      "hash": "MAC-10 | Classic Crate (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "12584",
+      "hash": "Sticker | Heroic (Glitter) | Antwerp 2022",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "14319",
+      "hash": "Sticker | Team Spirit (Holo) | Rio 2022",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "2898",
+      "hash": "MAG-7 | Seabird (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "3755",
+      "hash": "P2000 | Urban Hazard (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "16017",
+      "hash": "Sticker | karrigan | Atlanta 2017",
+      "category": "sticker",
+      "sampling_band": "100-1000",
+      "role": "train"
+    },
+    {
+      "id": "77692",
+      "hash": "R8 Revolver | Mauve Aside (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "9946",
+      "hash": "StatTrak™ Negev | Bratatat (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "59790",
+      "hash": "Sticker | gla1ve (Glitter) | Copenhagen 2024",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "6024",
+      "hash": "Sealed Graffiti | NT (Brick Red)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "81758",
+      "hash": "Souvenir Galil AR | Grey Smoke (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "100-1000",
+      "role": "test"
+    },
+    {
+      "id": "17568",
+      "hash": "USP-S | Desert Tactical (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "6010",
+      "hash": "Sealed Graffiti | Mr. Teeth (Blood Red)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "9434",
+      "hash": "StatTrak™ M4A4 | Hellfire (Factory New)",
+      "category": "weapon",
+      "sampling_band": "1000+",
+      "role": "test"
+    },
+    {
+      "id": "5069",
+      "hash": "Sawed-Off | Fubar (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "68628",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | 180 One Tap",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "65399",
+      "hash": "CZ75-Auto | Copper Fiber (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "7148",
+      "hash": "Souvenir Dual Berettas | Contractor (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "100-1000",
+      "role": "train"
+    },
+    {
+      "id": "16866",
+      "hash": "Sticker | speed4k | Berlin 2019",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "67265",
+      "hash": "Austin 2025 Legends Sticker Capsule",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "2445",
+      "hash": "M4A4 | Hellfire (Factory New)",
+      "category": "weapon",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "15926",
+      "hash": "Sticker | juanflatroo (Gold) | Paris 2023",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "6994",
+      "hash": "Snakebite Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "65835",
+      "hash": "XM1014 | Mockingbird (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "70345",
+      "hash": "Sticker | kyousuke | Budapest 2025",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "3625",
+      "hash": "Operation Phoenix Weapon Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "4348",
+      "hash": "Paris 2023 Legends Autograph Capsule",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "7523",
+      "hash": "Souvenir MAG-7 | Rust Coat (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "6651",
+      "hash": "Sealed Graffiti | Shining Star (Shark White)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "4345",
+      "hash": "Paris 2023 Contenders Autograph Capsule",
+      "category": "capsule",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "62471",
+      "hash": "StatTrak™ P90 | Randy Rush (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "6750",
+      "hash": "Sealed Graffiti | Sorry (Tracer Yellow)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "702",
+      "hash": "CS20 Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "2216",
+      "hash": "M249 | Submerged (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "78277",
+      "hash": "Souvenir Charm | Budapest 2025 Highlight | apEX B-site triple",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "2070",
+      "hash": "Horizon Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "6100",
+      "hash": "Sealed Graffiti | OMG (Jungle Green)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "20618",
+      "hash": "★ StatTrak™ Ursus Knife | Slaughter (Factory New)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "test"
+    },
+    {
+      "id": "59514",
+      "hash": "★ Sport Gloves | Vice (Minimal Wear)",
+      "category": "glove",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "6736",
+      "hash": "Sealed Graffiti | Sorry (Bazooka Pink)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "59911",
+      "hash": "Sticker | 910 (Holo) | Copenhagen 2024",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "5190",
+      "hash": "Sealed Graffiti | 200 IQ (Battle Green)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "59583",
+      "hash": "Sticker | Wicadia | Copenhagen 2024",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "59994",
+      "hash": "Sticker | hallzerk (Gold) | Copenhagen 2024",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "6920",
+      "hash": "Sealed Graffiti | Worry (Bazooka Pink)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "13643",
+      "hash": "Sticker | Pink Jaggyfish",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "12064",
+      "hash": "Sticker | FaZe Clan (Foil) | Katowice 2019",
+      "category": "sticker",
+      "sampling_band": "100-1000",
+      "role": "test"
+    },
+    {
+      "id": "78227",
+      "hash": "Souvenir Charm | Budapest 2025 Highlight | apEX early double",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "15433",
+      "hash": "Sticker | electronic | Berlin 2019",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "16588",
+      "hash": "Sticker | roeJ (Glitter) | Paris 2023",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "test"
+    },
+    {
+      "id": "68125",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | 910 Triple Kill vs Vitality",
+      "category": "highlight",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "3824",
+      "hash": "P250 | Cyber Shell (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "17791",
+      "hash": "XM1014 | Quicksilver (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "test"
+    },
+    {
+      "id": "18054",
+      "hash": "★ Bowie Knife | Stained (Factory New)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "9290",
+      "hash": "StatTrak™ M249 | System Lock (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "validation"
+    },
+    {
+      "id": "1684",
+      "hash": "G3SG1 | Scavenger (Factory New)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "test"
+    },
+    {
+      "id": "76193",
+      "hash": "Sticker Slab | woxic (Holo) | Austin 2025",
+      "category": "slab",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "65404",
+      "hash": "P90 | Straight Dimes (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "validation"
+    },
+    {
+      "id": "79246",
+      "hash": "StatTrak™ Desert Eagle | Firebreathing (Factory New)",
+      "category": "weapon",
+      "sampling_band": "100-1000",
+      "role": "test"
+    },
+    {
+      "id": "67275",
+      "hash": "Sticker | JT (Foil) | Austin 2025",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "5926",
+      "hash": "Sealed Graffiti | Lightbulb (Shark White)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "validation"
+    },
+    {
+      "id": "60521",
+      "hash": "Glock-18 | Fade (Factory New)",
+      "category": "weapon",
+      "sampling_band": "1000+",
+      "role": "test"
+    },
+    {
+      "id": "13452",
+      "hash": "Sticker | Nifty | London 2018",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "12811",
+      "hash": "Sticker | Jame | Berlin 2019",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "4548",
+      "hash": "R8 Revolver | Memento (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "79178",
+      "hash": "StatTrak™ MP7 | Amberline (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "7534",
+      "hash": "Souvenir MAG-7 | Silver (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "100-1000",
+      "role": "train"
+    },
+    {
+      "id": "1537",
+      "hash": "Five-SeveN | Orange Peel (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "66646",
+      "hash": "Austin 2025 Legends Autograph Capsule",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "4346",
+      "hash": "Paris 2023 Contenders Sticker Capsule",
+      "category": "capsule",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "872",
+      "hash": "Clutch Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "865",
+      "hash": "Chroma 3 Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "79117",
+      "hash": "★ Driver Gloves | Plum Quill (Minimal Wear)",
+      "category": "glove",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "6658",
+      "hash": "Sealed Graffiti | Silver Bullet (Battle Green)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "5209",
+      "hash": "Sealed Graffiti | 8-Ball (Battle Green)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "78622",
+      "hash": "Souvenir Charm | Budapest 2025 Highlight | flameZ everywhere",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "18846",
+      "hash": "★ M9 Bayonet | Boreal Forest (Field-Tested)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "71485",
+      "hash": "Sticker Slab | Mahjong Fa",
+      "category": "slab",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "64590",
+      "hash": "Sticker | Wildcard (Glitter) | Shanghai 2024",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "11455",
+      "hash": "Sticker | Bite Me (Foil)",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "66980",
+      "hash": "Sticker | apEX (Foil) | Austin 2025",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "10834",
+      "hash": "StatTrak™ Tec-9 | Fubar (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "59400",
+      "hash": "StatTrak™ Sawed-Off | Analog Input (Factory New)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "7348",
+      "hash": "Souvenir Glock-18 | Reactor (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "100-1000",
+      "role": "train"
+    },
+    {
+      "id": "7056",
+      "hash": "Souvenir AUG | Snake Pit (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "8",
+      "hash": "2020 RMR Challengers",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "62361",
+      "hash": "Gallery Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "61765",
+      "hash": "Copenhagen 2024 Vertigo Souvenir Package",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "6607",
+      "hash": "Sealed Graffiti | Rly (Shark White)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "6161",
+      "hash": "Sealed Graffiti | Piggles (Princess Pink)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "68489",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | Quad Kill And A Clutch",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "18836",
+      "hash": "★ M9 Bayonet | Black Laminate (Battle-Scarred)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "77102",
+      "hash": "Sticker Slab | jL (Glitter, Champion) | Copenhagen 2024",
+      "category": "slab",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "59798",
+      "hash": "Sticker | VINI (Glitter) | Copenhagen 2024",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "12074",
+      "hash": "Sticker | FaZe Clan (Gold) | Rio 2022",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "67251",
+      "hash": "Sticker | EliGE | Austin 2025",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "3602",
+      "hash": "Nova | Wood Fired (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "65897",
+      "hash": "StatTrak™ MAG-7 | Resupply (Factory New)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "65578",
+      "hash": "Tec-9 | Blue Blast (Factory New)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "67264",
+      "hash": "Austin 2025 Challengers Autograph Capsule",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "4476",
+      "hash": "Prisma Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "8232",
+      "hash": "Spectrum Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "5423",
+      "hash": "Sealed Graffiti | Choke (Tracer Yellow)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "6867",
+      "hash": "Sealed Graffiti | Tombstone (Brick Red)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "68958",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | 910 Double Kill",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "19403",
+      "hash": "★ StatTrak™ Bayonet | Bright Water (Field-Tested)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "75990",
+      "hash": "Sticker Slab | m0NESY | Copenhagen 2024",
+      "category": "slab",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "17152",
+      "hash": "Sticker | zorte (Holo) | Antwerp 2022",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "16322",
+      "hash": "Sticker | nicoodoz (Gold) | Antwerp 2022",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "70408",
+      "hash": "Sticker | NRG (Embroidered) | Budapest 2025",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "5163",
+      "hash": "Sawed-Off | Yorick (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "7835",
+      "hash": "Souvenir P90 | Scorched (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "17244",
+      "hash": "Tec-9 | Groundwater (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "70530",
+      "hash": "Budapest 2025 Legends Sticker Capsule",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "4577",
+      "hash": "Recoil Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "867",
+      "hash": "Chroma Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "5750",
+      "hash": "Sealed Graffiti | Grimace (Blood Red)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "5662",
+      "hash": "Sealed Graffiti | GGEZ (Tracer Yellow)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "68133",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | Surprise Grenade",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "18127",
+      "hash": "★ Butterfly Knife | Freehand (Battle-Scarred)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "79485",
+      "hash": "Sticker Slab | donk | Cologne 2026",
+      "category": "slab",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "13074",
+      "hash": "Sticker | Lucaozy (Holo) | Paris 2023",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "66915",
+      "hash": "Sticker | Ariucle (Gold) | Austin 2025",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "16787",
+      "hash": "Sticker | sinnopsyy (Glitter) | Paris 2023",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "62474",
+      "hash": "MP5-SD | Statics (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "10054",
+      "hash": "StatTrak™ Nova | Toy Soldier (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "65464",
+      "hash": "MP9 | Pine (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "540",
+      "hash": "Antwerp 2022 Contenders Autograph Capsule",
+      "category": "capsule",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "65653",
+      "hash": "Fever Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "863",
+      "hash": "Chroma 2 Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "5199",
+      "hash": "Sealed Graffiti | 200 IQ (Monarch Blue)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "6934",
+      "hash": "Sealed Graffiti | Worry (Tracer Yellow)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "68283",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | Running Galil",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "19747",
+      "hash": "★ StatTrak™ Flip Knife | Autotronic (Battle-Scarred)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "70817",
+      "hash": "Sticker | RED Canids (Gold) | Budapest 2025",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "70765",
+      "hash": "Sticker | chopper (Gold) | Budapest 2025",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "66526",
+      "hash": "Sticker | Maka | Austin 2025",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "17327",
+      "hash": "Tec-9 | Snek-9 (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "3680",
+      "hash": "P2000 | Grassland (Field-Tested)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "65859",
+      "hash": "Galil AR | Acid Dart (Battle-Scarred)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "4578",
+      "hash": "Revolution Case",
+      "category": "case",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "1867",
+      "hash": "Gamma 2 Case",
+      "category": "case",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "5887",
+      "hash": "Sealed Graffiti | Kiss (Battle Green)",
+      "category": "graffiti",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "6266",
+      "hash": "Sealed Graffiti | Rage Mode (Bazooka Pink)",
+      "category": "graffiti",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "68310",
+      "hash": "Souvenir Charm | Austin 2025 Highlight | Deadly Deagle",
+      "category": "highlight",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "20080",
+      "hash": "★ StatTrak™ M9 Bayonet | Doppler (Factory New)",
+      "category": "knife",
+      "sampling_band": "1000+",
+      "role": "train"
+    },
+    {
+      "id": "12850",
+      "hash": "Sticker | KRIMZ (Glitter) | Rio 2022",
+      "category": "sticker",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "66571",
+      "hash": "Sticker | XANTARES (Gold) | Austin 2025",
+      "category": "sticker",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "14330",
+      "hash": "Sticker | Techno4K (Glitter) | Paris 2023",
+      "category": "sticker",
+      "sampling_band": "<1",
+      "role": "train"
+    },
+    {
+      "id": "5040",
+      "hash": "Sawed-Off | Black Sand (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "1-10",
+      "role": "train"
+    },
+    {
+      "id": "10069",
+      "hash": "StatTrak™ Nova | Wood Fired (Minimal Wear)",
+      "category": "weapon",
+      "sampling_band": "10-100",
+      "role": "train"
+    },
+    {
+      "id": "59812",
+      "hash": "Tec-9 | Slag (Well-Worn)",
+      "category": "weapon",
+      "sampling_band": "<1",
+      "role": "train"
+    }
+  ]
+}

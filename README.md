@@ -2,7 +2,31 @@
 
 用于后续保存 CS2 市场数据，并开展预测模型训练与评估。
 
-旧采集程序与配置已移出。当前具备 SMIS 云端可用性探针，以及近一年历史首轮试训流程；未启用持续采集或定时训练。
+旧采集程序与配置已移出。当前具备 SMIS 云端可用性探针、首轮试训，以及 C5 / 悠悠逐饰品择低总成本的 V2 研究训练流程；未启用持续采集或定时训练。
+
+## 双买入端训练 V2
+
+每个饰品在同一决策时刻比较 C5 与悠悠买入总成本，选择较低且有报价的一方；不同饰品可以混用两个平台。同一商品的 Steam 退出预测共用，不把两平台当作两份独立的 Steam 标签。费用尚未独立核验，基准假设额外买入费为零，另报告两平台各增加 1% 的情景。
+
+V2 保存三平台 360 天日度与 90 天细粒度历史，使用过去 365 天窗口中实际可得数据。观察日后统一 UTC 午夜决策，报价只取此前可见的本日记录；退出标签为持有满 168 小时后 24 小时内首条有效 Steam 报价。缺失不补造，总在售量不当作成交量或最低价档深度。
+
+配置固定于 config/dual-training.json 与 config/dual-model.json。200 个合格商品预先分为训练 120、验证 40、最终测试 40；测试候选与旧 80 个候选隔离。模型比较 HGB / LightGBM，提供 P10 / P50 / P90 净钱包预测、时间隔离校准的超目标折扣概率及排序模型；最终测试前开发集重训，最新模型仍不拟合最终测试商品。
+
+首轮总预算参数为每个周度决策日 1000 元模拟现金，同品跨平台合计最多一件，不重叠持有。金额预测与即时基准共用整数预算分配器；排序器只与相同的贪心分配器比较，排序分数不当作钱包金额。现金支出、未用预算、Steam 钱包到账与不利情景分别披露。
+
+Python 3.12 的独立环境依赖见 requirements-training-v2.txt；本地实验示例：
+
+~~~powershell
+New-Item -ItemType Directory -Path .local/dual-year-v2
+Copy-Item config/dual-training.json .local/dual-year-v2/experiment-plan.json
+Copy-Item config/dual-model.json .local/dual-year-v2/model-plan.json
+node scripts/collect-dual-training.mjs --live config/dual-training.json .local/dual-year-v2/input
+.local/venv-v2/Scripts/python.exe training/dual_train.py --root .local/dual-year-v2 --output .local/dual-year-v2/results
+~~~
+
+采集串行间隔至少三秒，有总请求预算和检查点。源拒绝或限流会停止，保留已完成快照；格式不合格的候选明确记录并跳过。运行中的候选、费用假设及时间截点不应改写。输出目录须为新目录，模型与输入保存在 .local；source-snapshot 保存本次实际算法与配置字节。
+
+工作流 Train dual-platform net-wallet models V2 仅 main 手动触发、contents:read，75 分钟上限。Artifact 保留七天，上传模型、实验报告与源码快照，排除完整 daily / fine 历史和 samples.jsonl。是否具备业务增益以独立测试相对双平台即时基准为准，单一月份改善不当作前瞻或全市场验证。
 
 ## 近一年历史首轮训练
 
