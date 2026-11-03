@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { threeMarketHistory, validateExperiment, collectDual } from '../scripts/collect-dual-training.mjs';
 
@@ -33,9 +34,10 @@ test('roles cannot leak previous candidates into the final unseen-item test', ()
   assert.throws(() => validateExperiment(copy), /cohort_invalid/);
   validateExperiment(config);
 });
-test('rate limits stop the collector and persist budget and cooldown without retry', async () => {
+test('rate limits stop the collector and persist budget and cooldown without retry', async (t) => {
   const config = JSON.parse(fs.readFileSync('config/dual-training.json', 'utf8'));
-  const out = fs.mkdtempSync(path.resolve('.local/dual-collection-test-'));
+  const out = fs.mkdtempSync(path.resolve(tmpdir(), 'dual-collection-test-'));
+  t.after(() => fs.rmSync(out, { recursive: true, force: true }));
   let calls = 0;
   const report = await collectDual(config, out, { clock: () => now, sleep: async () => {},
     send: async () => { calls++; return { status: 429, text: 'not retained' }; } });
